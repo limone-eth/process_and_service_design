@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage[normalem]{ulem}
 \usepackage{hyperref}
+\usepackage{enumitem}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{subcaption}
 \hypersetup{
@@ -85,11 +86,12 @@ As a mean, ICT has a fundamental role in the evolution towards the S-D logic. Wh
 As a goal, ICT is also a service to be delivered and a possible way to deliver these service could be using a Web Service.
 \section{\LARGE Service Definition}
 \uline{Definition of service (IT perspective)}: \\
-\textit{“A service is a mechanism to enable access to one or more capabilities, where the access is provided using a prescribed interface and is exercised consistent with constraints and policies as specified by the service description. A service is provided by an entity – the service provider – for use by others, but the eventual consumers of the service may not be known to the service provider and may demonstrate uses of the service beyond the scope originally conceived by the provider.”  (P. Hill, On goods and services)}
+\textit{“A service is a mechanism to enable access to one or more capabilities, where the access is provided using a prescribed interface and is exercised consistent with constraints and policies as specified by the service description. A service is provided by an entity – the service provider – for use by others, but the eventual consumers of the service may not be known to the service provider and may demonstrate uses of the service beyond the scope originally conceived by the provider.”  (P. Hill, On goods and services)} \\ \\
 \subsection{Software Oriented Architecture}
 \textbf{Service-Oriented Architecture (SOA)} is a style of software design where services are provided to the other components by application components, through a communication protocol over a network. In service oriented architecture, a number of services communicate with each other, in one of two ways: through passing data or through two or more services coordinating an activity. \\
 \subsubsection{Reference Model}
-SOA in the end is a \uline{reference model}. A reference model is an abstract \textbf{framework} for understanding significant relationships among the entities of some environment. It enables the development of specific reference or concrete architectures using consistent standards or specifications supporting that environment. A reference model consists of a minimal set of unifying concepts, axioms and relationships withing a particular problem domain, and is independent of specific standards, technologies, implementations, or the concrete details. 
+SOA in the end is a \uline{reference model}. A reference model is an abstract \textbf{framework} for understanding significant relationships among the entities of some environment. It enables the development of specific reference or concrete architectures using consistent standards or specifications supporting that environment. A reference model consists of a minimal set of unifying concepts, axioms and relationships withing a particular problem domain, and is independent of specific standards, technologies, implementations, or the concrete details. \\ \\
+Following discussion on SOA RM is taken from [1]
 \subsubsection{SOA Reference Model}
 The goal of this reference model is to define the essence of service oriented architecture, and emerge with a vocabulary and a common understanding of SOA. 
 \begin{figure}[h!]
@@ -230,9 +232,6 @@ Finally, the execution context is also the context in which the interpretation o
   \caption{IBM SOA Reference Architecture}
   \label{fig:imb-soa}
 \end{figure}
-\begin{itemize}
-	\item 
-\end{itemize}
 The SOA RA allows architects to use its contents such as the building blocks as a checklist of elements: architectural building blocks and their relations in each layer, the options available, decisions that need to be made at each layer. The layers provide a starting point for the separation of concerns needed to build an SOA. Each group of the separated concerns are represented in their own "layer." \\ \\
 Within each of the layers depicted in Figure 11 there are Architectural Building Blocks (ABBs) that represents a basic element of reusable functionality and fulfill the key responsibilities of that layer. Each ABB resides in a layer, supports capabilities, and has responsibilities. ABBs are also connected to one another across the layers and provide a natural association between layers. If a particular connection between ABBs occurs consistently across layers to solve a certain problem this then defines a pattern of ABBs as well as the valid interaction sequences between the architectural building blocks. \\ \\
 Along with the ABBs there are also the capabilities that they support. A capability is defined by the Open Group in TOGAF 9, as "an ability that an organization, person, or system possesses". So, expanding on that definition, ABBs provide the technical resource to allow an organization, person or system to be able to provide their defined capability. An ABB, providing support for one or more capabilities, that can be realized by one or more components or products; examples of the responsibilities of an ABB include: service definition, mediation, routing, etc.
@@ -251,4 +250,10 @@ The layers that are defined in an SOA RA are as follows:
 	\item \textbf{Information Architecture Layer}: is a cross-cutting concern that is responsible for manifesting a unified representation of the information aspect of an organization as provided by its IT services, applications, and systems enabling business needs and processes and aligned with the business vocabulary. This layer includes information architecture, business analytics and intelligence.
 	\item \textbf{Governance Layer}: is a cross-cutting concern that ensures that the services and SOA solutions within an organization are adhering to the defined policies, guidelines and standards that are defined as a function of the objectives, strategies and regulations applied in the organization and that an SOA solutions are providing the desired business value.
 \end{itemize}
+\clearpage
+\section{References}
+\begin{enumerate}[label={[\arabic*]}]
+  \item C. M. MacKenzie et al.,Reference Model for Service Oriented
+Architecture 1.0., OASIS Open, 2006
+\end{enumerate}
 \end{document}
