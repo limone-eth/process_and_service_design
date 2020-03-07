@@ -249,6 +249,171 @@ The layers that are defined in an SOA RA are as follows:
 	\item \textbf{Information Architecture Layer}: is a cross-cutting concern that is responsible for manifesting a unified representation of the information aspect of an organization as provided by its IT services, applications, and systems enabling business needs and processes and aligned with the business vocabulary. This layer includes information architecture, business analytics and intelligence.
 	\item \textbf{Governance Layer}: is a cross-cutting concern that ensures that the services and SOA solutions within an organization are adhering to the defined policies, guidelines and standards that are defined as a function of the objectives, strategies and regulations applied in the organization and that an SOA solutions are providing the desired business value.
 \end{itemize}
+\subsection{e-Service}
+A service is an activity (not necessarily atomical) that can be more or less complex, so it may imply the existence of a process. A service involces two actors: 
+\begin{itemize}
+	\item \textbf{Service provider}
+	\item \textbf{Service consumer}
+\end{itemize}
+A service provider may become a service consumer and the vice-versa. \\ 
+A service requires a prior agreement. Usually service exchanges last longer than good exchange and the interaction between providers and consumer could be complex. \\ \\
+\textit{“Service systems comprise service providers and service clients working together to co-produce value in complex value chains or networks.”} (S. Vargo, R. Lusch)\\ \\
+Co-creation implies that customers and providers are not fixed roles: provider may become customer of someone else and a customer may become a provider. \\
+Service system can be more o r less complex involving a different number of actors, that's why governance of a service network is not an easy task.
+\subsubsection{Customers and providers interaction}
+There are different scenarios according to the involvement of persons and their belongings.
+\myparagraph{Person acting on person}
+A person delivers a service to another person and no belongings are involved on both sides. Note that this scenario is not interesting to us.
+\begin{figure}[h!]
+ \hfill \includegraphics[width=150pt]{images/person-person}\hspace*{\fill}
+  \label{fig:person-person}
+\end{figure}\\ \\
+\myparagraph{Person with belonging on person}
+A person delivers a service to another person (e.g., haircut, medical service, teaching). Providers belongings (tools needed to provide the service) are used to deliver the service.
+\begin{figure}[h!]
+ \hfill \includegraphics[width=150pt]{images/person-b-person}\hspace*{\fill}
+  \label{fig:person-b-person}
+\end{figure}
+\myparagraph{Person with belonging acting on belonging}
+A person delivers a service to another person changing the conditions of the customer belonging (e.g., car repair, transportation). Providers belongings (tools) are used to deliver the service. Customer belongings are managed by the provider.
+\begin{figure}[h!]
+ \hfill \includegraphics[width=150pt]{images/person-belonging}\hspace*{\fill}
+  \label{fig:person-belonging}
+\end{figure}
+\myparagraph{Person acting on person}
+Customer interacts with providers belonging to exploit a service (e.g., self-service). Providers belongings (tools) are used to deliver the service. Human intervention at provider side is limited. Customer needs to interact with machines (H2M). \\ 
+Customer does not communicate with the service provider but he/she uses their belongings (e.g, Consumer uses the ATM without "seeing" the bank). 
+\begin{figure}[h!]
+ \hfill \includegraphics[width=150pt]{images/belonging-person}\hspace*{\fill}
+  \label{fig:belonging-person}
+\end{figure}
+\myparagraph{Belonging acting on belonging}
+Belongings are directly interacting (e.g., web services). Providers belongings (tools) are used to deliver the service. Human intervention at provider side is limited. Customer needs to be equipped with belonging able to communicate with the provider belonging (M2M). This is the case of a computer communicating with a web service.
+\begin{figure}[h!]
+ \hfill \includegraphics[width=150pt]{images/belonging-belonging}\hspace*{\fill}
+  \label{fig:belonging-belonging}
+\end{figure}
+\subsubsection{Resource intensity of services}
+Resource intensity is a measure of the resources required for the provision of a unit of a good or service.
+\begin{itemize}
+	\item \textbf{Labor- and capital-intensive services}: labor costs outweigh the costs for equipment and materials (e.g., hospital)
+	\item \textbf{Knowledge-intensive services}: heavily rely on professional knowledge (e.g., medical doctors)
+	\item \textbf{Information-intensive services}: activities are mainly focused on data management (e.g., data analytics)
+	\item \textbf{Technology-intensive services}: labor costs becomes negligible (e.g., web service, cloud services)
+\end{itemize}
+\subsubsection{Technology in e-Services}
+Technology can be used at (both) consumer and provider side in different ways and with different pervasiveness. Technology then, can assume different roles.
+\begin{figure}[h!]
+ \hfill \includegraphics[width=200pt]{images/roles-tech}\hspace*{\fill}
+ \caption{Possible roles of technology}
+  \label{fig:roles-tech}
+\end{figure}
+\myparagraph{Face to face interaction}
+Here services providers and service consumers are human beings. We distinguish:
+\begin{itemize}
+	\item \textbf{Technology-assisted services (e.g., bank teller)}:
+	\begin{itemize}
+		\item service consumer does not have access to the technology as the service provider acts as a mediator
+		\item service provider uses technology to improve the interaction with the service consumer
+	\end{itemize}
+	\item \textbf{Technology-facilitated services (e.g., beamer)}:
+		\begin{itemize}
+		\item service provider uses technology to improve the interaction with the service consumer
+		\item service consumer can have access to the technology together with the service provider
+	\end{itemize}
+\end{itemize}
+\myparagraph{Face to screen interaction}
+Here technology is in the middle between providers and consumers (e.g., telephone,web). These below by definitions are e-Services.
+\begin{itemize}
+	\item \textbf{Technology-mediate services}:
+	\begin{itemize}
+		\item service providers and consumers are human beings
+		\item e.g., call center, Amazon Mechanical Turk
+	\end{itemize}
+	\item \textbf{Technology-generated services}:
+		\begin{itemize}
+		\item service providers are replaced by technology
+		\item e.g., ATM, home banking
+	\end{itemize}
+\end{itemize}
+\subsubsection{e-Services}
+\textit{"An electronic service, a.k.a. e-Service, is a service system (with elements, a structure, a behavior, and a purpose) for which the implementation of many of this elements and behavior is done using automation and programming techniques."} \\(J. Cardoso, Fundamentals of Service Systems)
+\myparagraph{The value of e-Services}
+\begin{itemize}
+	\item \textbf{Accessibility}: services can be accessed almost everywhere. Now the communication infrastructure is now available everywhere since the adoption of smartphone is covering the majority of population.
+	\item \textbf{Delivery}: delivery is almost instantaneous, but it depends on the nature of the service (ATM vs. booking)
+	\item \textbf{Human touch}: customer experience is one of the main drawbacks of e-Services adoption, that's why technology is trying to reduce this gap through UX studies
+	\item \textbf{Personalization}: one-to-one relationship is fundamental, private data need to be share
+\end{itemize}
+The e-Service provisioning is usually driven by a business process. The customer of the service is one of the parties involved in the business process. The business process, to be enacted, could be based on other services: some of them human-based; some of them automatic (more interesting for us).
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=\linewidth]{images/business-process}\hspace*{\fill}
+ \caption{BPM Collaboration diagram}
+  \label{fig:business-process}
+\end{figure} \\
+Figure 12 shows an example of BPM collaboration diagram in which different services and processes collaborate at different levels in order to provide a complex service. 
+\pagebreak
+\section{Service Blueprint}
+\subsection{Service design}
+Service design is design for experiences that reach people through many different touch points, and that happen over time. It is composed by a set of methods and principles coming from different disciplines which are systematically applied to the creation of new services (Interaction designers, Information science, Management science, ...)
+\subsubsection{Service design principles}
+\begin{itemize}
+	\item \textbf{Human-centered}: everything starts from a deep understanding of the needs of the users. \textcolor{MidnightBlue}{Designing our services based upon how they are experienced from the ‘customer’s perspective.’} Placing the user or consumer in the centre of the service allows us to discover how the patient experiences the service. We do this by implementing a range of techniques including interviews, observations and field research to gather insights into the consumer’s needs, experiences and behaviours.
+	\item \textbf{Co-designed}: service innovation is not possible without the acceptance of all stakeholders. \textcolor{MidnightBlue}{All stakeholder groups should be involved in the service design process.} Co-creation is the process of involving users not only in the design of the solution but also the production and development of it. Multidisciplinary teams from all levels within our organisation will allow for a range of expertise, knowledge and skills and will generate great ideas. Work out who is within the service ‘ecosystem’ and make sure every party is represented.
+	\item \textbf{Sequenced}: services must be designed as dynamic processes that take place over time. 
+	\item \textbf{Holistic}: all the aspects of the service, both digital and physical should be considered. \textcolor{MidnightBlue}{The entire environment in which the service exists and is delivered should be considered.} Holistic services look at the whole user journey and consider each touch point of that service. Touchpoints refer to any interactions that occur between users and a service. A holistic approach can be achieved by using service blue prints, personas or fictional characters to highlight different user experiences and user journeys. A well-rounded and complete service also involves the functionality, safety and reliability of the service.
+	\item \textbf{Evidenced}: visualize and prototype our service concept early and often. \textcolor{MidnightBlue}{In a collaborative team environment, it is more expressive to use visual aids than to rely purely on words. }Get the team to use sketches, pictures, graphs, maps and prototypes where applicable. Be creative with coloured pens and glue. Visual tools can be less complicated to digest and more tangible. They make things easier to remember and can help to properly explain what we’re trying to achieve.
+	\item \textbf{Agile}: Our process is incremental and iterative: start small, test early and learn quickly from failure and success. \textcolor{MidnightBlue}{One of the main features of services design is not avoiding making mistakes but learning from them.} This is achieved by prototyping and testing. You can save a large amount of time and money if we test the experience before spending lengthy periods of time developing it. It’s imperative to prototype solutions before we launch them but it is also a good idea to release and test our iterations many times through the process. Don’t just wait until the end of the project to do so.
+\end{itemize}
+\pagebreak
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=200pt]{images/service-design-process}\hspace*{\fill}
+ \caption{Service design process}
+  \label{fig:service-design-process}
+\end{figure}
+Each of the phases in Figure 13 consists in different activities.
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=410pt]{images/exploration}\hspace*{\fill}
+ \caption{Exploration phase}
+  \label{fig:exploration}
+\end{figure}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=410pt]{images/other-phases}\hspace*{\fill}
+ \caption{Creation, Reflection and Implementation}
+  \label{fig:other-phases}
+\end{figure}
+\subsection{Service blueprinting}
+A \textbf{service blueprint} describes how a company delivers service to customers in order to improve customers' and employees’ experience. It is also used to plan and organize resources: people, tools and processes. \\ \\
+\textbf{Service blueprinting} is Technique to help organizations understanding their service offering (or designing new services) and delivery processes by enabling to examine service processes from a customers point of view. The result is a graphical representation, i.e., map, of:
+\begin{itemize}
+	\item The user journey (phase by phase, step by step)
+	\item The touchpoints (channel by channel, touchpoint by touchpoint)
+	\item The backstage processes (stakeholder by stakeholder, action by action)
+\end{itemize}
+\uline{The definition of a blueprint usually requires a team work.} \\ \\
+Why do we need a service blueprint?  \\
+It helps changing perspective. The main question is not how a service is delivered (still relevant). \textbf{The main questions are what is delivered}. It is about framing problem before solving it. 
+\\ 
+For example, Mc Donald, is an highly designed service:
+\begin{itemize}
+	\item What you obtain
+	\item The time in which you obtain goods
+	\item The experience (what the employees say)
+\end{itemize}
+\pagebreak
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=350pt]{images/first-blueprint}\hspace*{\fill}
+ \caption{First blueprint example}
+  \label{fig:first-blueprint}
+\end{figure}
+\textit{!Note that there exists no standard blueprint, every domain has its own.} 
+\\ \\
+Figure 17 shows an example blueprint for a Corner Shoeshine. The line of visibility separates what is visible to the consumer (upper part) from what is visible only to the service provider.
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=400pt]{images/second-service-blueprint}\hspace*{\fill}
+ \caption{Second blueprint example}
+  \label{fig:second-blueprint}
+\end{figure}
 \clearpage
 \section{References}
 \begin{enumerate}[label={[\arabic*]}]
