@@ -477,7 +477,99 @@ Finally, in the \textbf{Backstage} we identify which are the people (if any) inv
 	\item \textbf{Efficiency}: blueprint analysis allows the designer how to improve the process
 	\item \textbf{Standardization}: it provides a common background in terms of semantic and also an information asset
 \end{itemize}
-\clearpage
+\section{\LARGE Business Process Management}
+\subsection{Introduction}
+Business process management is based on the observation that each product that a company provides to the market is the outcome of a number of activities performed. Business processes are the key instrument to organizing these activities and to improving the understanding of their interrelationships. Business processes are an important concept to facilitating this effective collaboration. \\ \\
+In many companies there is a gap between organizational business aspects and the information technology that is in place. Narrowing this gap between organization and technology is important, because in today’s dynamic mar- kets, companies are constantly forced to provide better and more specific products to their customers. \\ \\
+While at an organizational level, business processes are essential to under- standing how companies operate, business processes also play an important role in the design and realization of flexible information systems.
+\subsubsection{Definitions}
+\begin{enumerate}
+	\item \textit{"A Business process is a collection of inter-related events, activities and decision points that involve a number of actors and objects, and that collectively lead to an outcome that is of value to at least one customer."} (Dumas, La Rosa, Mendling, Rejiers)
+	\item \textit{"A Business Process consists of a set of activities that are performed in coordination in an organizational and technical environment. These activities jointly realize a business goal. Each business process is enacted by a single organization, but it may interact with business processes performed by other organizations."} (Weske)
+\end{enumerate}
+\subsubsection{Main Elements}
+\begin{itemize}
+	\item \textbf{Organizations}: enterprise, non profit organizations...
+	\item \textbf{Activities/Tasks}: single unit of work (as seen as by the process owner)
+	\item \textbf{Coordination}: decision points, messages (inside/outside the organization)
+	\item \textbf{Events}: things that happen atomically (no duration)
+	\item \textbf{Outcome}: deliver values to the actors involved in the process
+\end{itemize}
+\pagebreak
+\subsubsection{Classification of Business Process}
+\myparagraph{Organizational vs. Operational}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=300pt]{images/org-vs-op}\hspace*{\fill}
+ \caption{Organizational vs Operational business processes}
+  \label{fig:example-blueprint}
+\end{figure}\\
+Different levels can be identified in business process management, ranging from high-level business strategies to implemented business processes.
+\begin{enumerate}
+	\item At the highest level, the strategy of the company is specified, which describes its long-term concepts to develop a sustainable competitive advantage in the market.
+	\item At the second level, the business strategy is broken down to operational goals. These goals can be organized, so that each goal can be divided into a set of subgoals.
+	\item At the third level, organizational business processes can be found. Organizational business processes are high-level processes that are typically specified in textual form by their inputs, their outputs, their expected results, and their dependencies on other organizational business processes. These business processes act as supplier or consumer processes.
+\end{enumerate} 
+While \textbf{organizational} business processes characterize coarse-grained business functionality, typically there are multiple \textbf{operational} business processes required that contribute to one organizational business process. In operational business processes, the activities and their relationships are specified, but implementation aspects of the business process are disregarded. Operational business processes are specified by business process models.\\
+Operational business processes are the basis for developing implemented business processes. Implemented business processes contain information on the execution of the process activities and the technical and organizational environment in which they will be executed.
+\myparagraph{Orchestration vs. Choreography}
+\textbf{Service Orchestration} represents a single centralized executable business process (the orchestrator) that coordinates the interaction among different services. The orchestrator is responsible for invoking and combining the services. The orchestrator is an actor that is not able to do anything but coordinating the others. \\ \\
+\textbf{Service choreography} is a global description of the participating services, which is defined by exchange of messages, rules of interaction and agreements between two or more endpoints. Choreography employs a decentralized approach for service composition.
+\\ \\
+The choreography describes the interactions between multiple services, where as orchestration represents control from one party's perspective. This means that a choreography differs from an orchestration with respect to where the logic that controls the interactions between the services involved should reside. In choreography there is not an orchestrator, but processes are coordinated by a previous agreement between all the parts.
+\myparagraph{Degree of Automation}
+Business processes can diverge in the level of automation. There are business processes that are fully automated, meaning that no human is involved in the enactment of such a business process. An example is ordering an airline ticket using Web interfaces. While the process is fully automated on the side of the airline, the customer is involved with manual activities, such as providing address information via Web browser interfaces.
+\myparagraph{Degree of Repetition}
+Business processes can be classified according to their degree of repetition. Examples of highly repetitive business processes include business processes without human involvement, such as online airline ticketing.  \\ \\
+At the other end of the repetition continuum, there are business processes that occur a few times only. Examples include large engineering efforts, such as designing a vessel. 
+\myparagraph{Degree of structuring}
+If the business process model prescribes the activities and their execution constraints in a complete fashion, then the process is structured. The different options for decisions that will be made during the enactment of the process have been defined at design time.  \\ \\
+If process participants who have the experience and competence to decide on their working procedures perform business process activities, structured processes are more of an obstacle than an asset. Skipping certain process ac- tivities the knowledge worker does not require or executing steps concurrently that are ordered sequentially in the process model is not possible in structured business processes. \\ 
+To better support knowledge workers, business process models can define processes in a less rigid manner, so that activities can be executed in any order or even multiple times until the knowledge worker decides that the goals of these activities have been reached. So called ad \textit{hoc activities} are an important concept for supporting unstructured parts of processes.
+\subsection{BPM}
+\textit{"BPM includes concepts, methods, and techniques to support the design, administration, configuration, enactment, and analysis of business processes."} (Weske)
+\subsubsection{Why BPM?}
+Today:
+\begin{itemize}
+	\item To understand what is happening in an organization
+	\item To increase productivity and remove wase (Lean)
+	\item To do the right things at the right time (Six Sigma)
+	\item To increase the quality of an organization (TQM)
+\end{itemize}
+Tomorrow:
+\begin{itemize}
+	\item To support not only operations but also managers
+	\item To support "Industry 4.0"
+	\item To exploit the Cloud (and Fog) Computing opportunities
+\end{itemize}
+\subsubsection{Business Process Lifecycle}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=220pt]{images/business-process-lifecycle}\hspace*{\fill}
+ \caption{Business process lifecycle}
+  \label{fig:bpl}
+\end{figure}
+The business process lifecycle is shown in Figure 24; it consists of phases that are related to each other. The phases are organized in a cyclical structure, showing their logical dependencies. These dependencies do not imply a strict temporal ordering in which the phases need to be executed. Many design and development activities are conducted during each of these phases, and incremental and evolutionary approaches involving concurrent activities in multiple phases are not uncommon.
+\myparagraph{Design and Analysis}
+The business process lifecycle is entered in the Design and Analysis phase, in which surveys on the business processes and their organizational and technical environment are conducted. Based on these surveys, business processes are identified, reviewed, validated, and represented by business process models. \\ \\
+Business process \uline{modelling} techniques as well as \uline{validation}, \uline{simulation}, and \uline{verification} techniques are used during this phase. Business process mod- elling is the core technical subphase during process design. Based on the survey and the findings of the business process improvement activities, the informal business process description is formalized using a particular business process modelling notation. \\ \\
+Simulation techniques can be used to support validation, because certain undesired execution sequences might be simulated that show deficits in the process model. Simulation of business processes also allows stakeholders to walk through the process in a step-by-step manner and to check whether the process actually exposes the desired behaviour
+\myparagraph{Configuration}
+Once the business process model is designed and verified, the business process needs to be implemented. There are different ways to do so. It can be implemented by a set of policies and procedures that the employees of the enterprise need to comply with. In this case, a business process can be realized without any support by a dedicated business process management system. \\ \\ 
+In case a dedicated software system is used to realize the business process, an implementation platform is chosen during the configuration phase. The business process model is enhanced with technical information that facilitates the enactment of the process by the business process management system. \\ \\
+There are two main strategies to adopt a BPMS:
+\begin{itemize}
+	\item Make (very rarely): write legacy software
+	\item Buy (more often): integrate existing software systems
+\end{itemize}
+\myparagraph{Enactement}
+Once the system configuration phase is completed, business process instances can be enacted. The process enactment phase encompasses the actual run time of the business process. Business process instances are initiated to fulfil the business goals of a company. Initiation of a process instance typically follows a defined event, for instance, the receipt of an order sent by a customer. \\ \\ 
+The business process management system actively controls the execution of business process instances as defined in the business process model. Process enactment needs to cater to a correct process orchestration, guaranteeing that the process activities are performed according to the execution constraints specified in the process model.
+\\ \\
+A monitoring component of a business process management system visual- izes the status of business process instances. Process monitoring is an impor- tant mechanism for providing accurate information on the status of business process instances.
+\myparagraph{Evaluation}
+The evaluation phase uses information available to evaluate and improve busi- ness process models and their implementations. Execution logs are evaluated using business activity monitoring and process mining techniques. These tech- niques aim at identifying the quality of business process models and the ade- quacy of the execution environment. \\ \\
+For instance, business activity monitoring might identify that a certain activity takes too long due to shortage of resources required to conduct it. Since this information is useful also for business process simulation, these phases are strongly related.
+\pagebreak
+\section{BPModeling}
 \section{\LARGE References}
 \begin{enumerate}[label={[\arabic*]}]
   \item C. M. MacKenzie et al.,Reference Model for Service Oriented
