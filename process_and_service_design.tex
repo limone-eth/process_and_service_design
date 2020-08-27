@@ -11,7 +11,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames, table]{xcolor}
 \usepackage{subcaption}
 \hypersetup{
     colorlinks=false, %set true if you want colored links
@@ -86,11 +86,12 @@ As a mean, ICT has a fundamental role in the evolution towards the S-D logic. Wh
 As a goal, ICT is also a service to be delivered and a possible way to deliver these service could be using a Web Service.
 \section{\LARGE Service Definition}
 \uline{Definition of service (IT perspective)}: \\
-\textit{“A service is a mechanism to enable access to one or more capabilities, where the access is provided using a prescribed interface and is exercised consistent with constraints and policies as specified by the service description. A service is provided by an entity – the service provider – for use by others, but the eventual consumers of the service may not be known to the service provider and may demonstrate uses of the service beyond the scope originally conceived by the provider.”  (P. Hill, On goods and services)} \\ \\
+\textit{“A service is a mechanism to enable access to one or more capabilities, where the access is provided using a prescribed interface and is exercised consistent with constraints and policies as specified by the service description. A service is provided by an entity – the service provider – for use by others, but the eventual consumers of the service may not be known to the service provider and may demonstrate uses of the service beyond the scope originally conceived by the provider.”  (P. Hill, On goods and services)} 
 \subsection{Software Oriented Architecture}
-\textbf{Service-Oriented Architecture (SOA)} is a style of software design where services are provided to the other components by application components, through a communication protocol over a network. In service oriented architecture, a number of services communicate with each other, in one of two ways: through passing data or through two or more services coordinating an activity. \\
+\textbf{Service-Oriented Architecture (SOA)} is a style of software design where services are provided to the other components by application components, through a communication protocol over a network. In service oriented architecture, a number of services communicate with each other, in one of two ways: through passing data or through two or more services coordinating an activity.
 \subsubsection{Reference Model}
-SOA in the end is a \uline{reference model}. A reference model is an abstract \textbf{framework} for understanding significant relationships among the entities of some environment. It enables the development of specific reference or concrete architectures using consistent standards or specifications supporting that environment. A reference model consists of a minimal set of unifying concepts, axioms and relationships withing a particular problem domain, and is independent of specific standards, technologies, implementations, or the concrete details. \\ \\
+SOA in the end is a \uline{reference model}. A reference model is an abstract \textbf{framework} for understanding the main elements characterizing an architecture. It enables the development of specific reference or concrete architectures using consistent standards or specifications supporting that environment. \\ \\ A reference model consists of a minimal set of unifying \uline{concepts, axioms, policies and relationships} within a particular problem domain, and is independent of specific standards, technologies, implementations, or the concrete details.\\
+In the SOA context, the first two elements that we need to define are: service providers (who create capabilities to support a solution) and service consumers (who is facing a problem in the course of their business). \\ \\
 Following discussion on SOA RM is taken from [1]
 \subsubsection{SOA Reference Model}
 The goal of this reference model is to define the essence of service oriented architecture, and emerge with a vocabulary and a common understanding of SOA. 
@@ -136,14 +137,21 @@ From a dynamic perspective, there are three fundamental concepts that are import
  For a service provider and consumer to interact with each other they have to be able to "see" each other. This is true for any consumer/provider relationship. In the case of SOA, visibility needs to be emphasized because it is not necessarily obvious how service participants can see each other. \\
  Preconditions to visibility are awareness, willingness and reachability. The initiator MUST be aware of the other parties, the participants MUST be predisposed to interaction, and the participants must be able to interact.
  \begin{itemize}
- 	\item \textbf{Awareness}: both the service provider and the service consumer MSUT have information that would lead them to know of the other's existence. Awareness of service offerings is often effected by various \textit{discovery} mechanisms. For a service consumer to discover a a service, the service provider must be capable of making details (service description and policies) of the service available to potential consumers.
- 	\item \textbf{Willingness}: t is an intentional act to initiate and to participate in a service interaction. For example, if a service consumer discovers a service via its description in a registry, and the consumer initiates an interaction, if the service provider does not cooperate then there can be no interaction. The extent of a service participant's willingness to engage in service interactions may be the subject of policies. 
- 	\item \textbf{Reachability}: the relationship between service participants where they are able to interact; possibly by exchanging information. This is an essential pre-requisite for service interaction - participants MUST be able to communicate with each other. A service consumer may have the intention of interacting with a service, however, if the service is not reachable, the service would not be visible by the consumer.
+ 	\item \textbf{Awareness}: both the service provider and the service consumer MSUT have information that would lead them to know of the other's existence. For a service consumer to discover a a service, the service provider must be capable of making details (service description and policies) of the service available to potential consumers.
+ 	\item \textbf{Willingness}: it is an intentional act to initiate and to participate in a service interaction.  For example, the willingness for a service provider to interact with other consumers can be expressed in the action of publishing itself on a service registry/repository, where consumers can easily find them.
+ 	\item \textbf{Reachability}: the relationship between service participants where they are able to interact, possibly by exchanging information. Participants MUST be able to communicate with each other. A service consumer may have the intention of interacting with a service, however, if the service is not reachable, the service would not be visible by the consumer.
  \end{itemize}
+\uline{Service description} is fundamental for the visibility concept. It allows service to expose its details to consumers, such as: \begin{itemize}
+	\item Functional aspects: what the service is providing
+	\item Technical requirements: how the service is provided
+	\item Constraints: e.g., only authenticated people can connect
+	\item Policies: e.g., 3 times/day usage cap
+	\item Quality of Service: e.q., promise a level of availability
+\end{itemize}
  \myparagraph{Interaction}
 Interacting with a service involves performing actions against the service. In many cases, this is accomplished by sending and receiving messages, but there are other modes possible that do not involve explicit message transmission. For example, a service interaction may be effected by modifying the state of a shared resource. However, for simplicity, we often refer to message exchange as the primary mode of interaction with a service.
 \begin{figure}[h!]
- \hfill \includegraphics[width=185pt]{images/interaction}\hspace*{\fill}
+ \hfill \includegraphics[width=140pt]{images/interaction}\hspace*{\fill}
   \caption{Service Interaction concepts}
   \label{fig:interaction}
 \end{figure}  \\
@@ -231,19 +239,16 @@ Finally, the execution context is also the context in which the interpretation o
   \caption{IBM SOA Reference Architecture}
   \label{fig:imb-soa}
 \end{figure}
-The SOA RA allows architects to use its contents such as the building blocks as a checklist of elements: architectural building blocks and their relations in each layer, the options available, decisions that need to be made at each layer. The layers provide a starting point for the separation of concerns needed to build an SOA. Each group of the separated concerns are represented in their own "layer." \\ \\
-Within each of the layers depicted in Figure 11 there are Architectural Building Blocks (ABBs) that represents a basic element of reusable functionality and fulfill the key responsibilities of that layer. Each ABB resides in a layer, supports capabilities, and has responsibilities. ABBs are also connected to one another across the layers and provide a natural association between layers. If a particular connection between ABBs occurs consistently across layers to solve a certain problem this then defines a pattern of ABBs as well as the valid interaction sequences between the architectural building blocks. \\ \\
-Along with the ABBs there are also the capabilities that they support. A capability is defined by the Open Group in TOGAF 9, as "an ability that an organization, person, or system possesses". So, expanding on that definition, ABBs provide the technical resource to allow an organization, person or system to be able to provide their defined capability. An ABB, providing support for one or more capabilities, that can be realized by one or more components or products; examples of the responsibilities of an ABB include: service definition, mediation, routing, etc.
-\pagebreak
+The IBM SOA Reference Architecture is used as reference for our course. It consists of different layers, with different levels of visibility, that can be used to describe a Service Oriented Architecture.
 \myparagraph{Summary of the layers}
 First, as we can see from Figure 11, there are some layers that are visible only to service providers and some visible only to service consumers which are Operational Layer + Service Components Layer and Consumers Layer + Business Process Layer respectively. Then in the middle we have the Service Layer which is the only one visible to both actors. \\
 The layers that are defined in an SOA RA are as follows:
 \begin{itemize}
-	\item \textbf{Operational Layer}: captures the organization's infrastructure, both new and existing, needed to support the SOA solution at design, deploy and run time. This layer represents the intersection point between the actual runtime infrastructure and the rest of the SOA which runs on that infrastructure. In addition, it is the integration point for an underlying Infrastructure as a Service (IaaS) construct and the rest of the SOA in the wider context of cloud computing.
-	\item \textbf{Service Component Layer}: contains software components, each of which provide the implementation or "realization" for a service, or operation on a service. The layer also contains the functional and technical components that facilitate a Service Component to realize one or more services. Software components hide the complexity of the underlying system and exposes with standard interface what defined in the Service Layer Its aim is to satisfy the Service Level Agreements.
-	\item \textbf{Service Layer}: consists of all the logical services defined within the SOA. This layer contains the descriptions for services, business capabilities, and IT manifestation that are used/created during design time as well as service contracts and descriptions that are used at runtime. Here service consumer is able to read the service description, while the service provider can decide to offer service components 'as-ease' or can combine services to create something new to offer.
-	\item \textbf{Business Process Layer}: covers the process representation, composition methods, and building blocks for aggregating loosely coupled services as a sequenced process aligned with business goals. Data flow and control flow are used to enable interactions between services and business processes. The role of this layer is central in pursuing the Business-IT alignment. Service consumer here can compose services using two strategies: orchestration and choreography. 
-	\item \textbf{Consumer Layer}: is the point where consumers, whether if be a person, program, browser or automation, interact with the SOA. It enables an SOA solution to support a client-independent, channel agnostic set of functionality, which is separately consumed and rendered through one or more channels (client platforms and devices). This layer provides the capability to quickly create the front end of the business processes and composite applications in order to respond to changes in the marketplace.
+	\item \textbf{Operational Layer}: it contains all the applications and infrastructures already existing in our architecture. In this layer, those applications are exposed and running possibly through services. Here we are opening specific sections and views of our IT architecture to the above layer. (e.g., applications, databases, ERP, CRM)
+	\item \textbf{Service Component Layer}: contains software components, each of which provide the implementation or "realization" for a service, or operation on a service. Software components hide the complexity of the underlying system and exposes with standard interface what defined in the Service Layer. Software components can be of different types. (e.g., microservices or monolith applications).
+	\item \textbf{Service Layer}: this layer contains the descriptions for services and business capabilities. Here service consumer is able to read the service description, while the service provider can decide to offer service components 'as-ease' or can combine services to create something new to offer.
+	\item \textbf{Business Process Layer}: this layer contains the definition of processes seen as service composition, possibly combining different services from different service providers. Here consumers can compose services using two strategies: orchestration and choreography. Data flow and control flow are used to enable interactions between services and business processes.
+	\item \textbf{Consumer Layer}: this layer is the point where consumers, whether if be a person, program, browser or automation, interact with the SOA. It enables an SOA solution to support a client-independent, channel agnostic set of functionality, which is separately consumed and rendered through one or more channels (client platforms and devices). This layer provides the capability to quickly create the front end of the business processes and composite applications in order to respond to changes in the marketplace.
 	\item \textbf{Integration Layer}:  is a cross-cutting concern that enables and provides the capability to mediate, which includes transformation, routing and protocol conversion to transport service requests from the service requester to the correct service provider.
 	\item \textbf{Quality of Service Layer}: is a cross-cutting concern that supports non functional requirement (NFR) related concerns of an SOA and provides a focal point for dealing with them in any given solution. It provides the means of ensuring that an SOA meets its requirements with respect to: monitoring, reliability, availability, manageability, transactionality, maintainability, scalability, security, safety, life cycle, etc.
 	\item \textbf{Information Architecture Layer}: is a cross-cutting concern that is responsible for manifesting a unified representation of the information aspect of an organization as provided by its IT services, applications, and systems enabling business needs and processes and aligned with the business vocabulary. This layer includes information architecture, business analytics and intelligence.
@@ -265,22 +270,22 @@ There are different scenarios according to the involvement of persons and their 
 \myparagraph{Person acting on person}
 A person delivers a service to another person and no belongings are involved on both sides. Note that this scenario is not interesting to us.
 \begin{figure}[h!]
- \hfill \includegraphics[width=150pt]{images/person-person}\hspace*{\fill}
+ \hfill \includegraphics[width=120pt]{images/person-person}\hspace*{\fill}
   \label{fig:person-person}
-\end{figure}\\ \\
+\end{figure}
 \myparagraph{Person with belonging on person}
 A person delivers a service to another person (e.g., haircut, medical service, teaching). Providers belongings (tools needed to provide the service) are used to deliver the service.
 \begin{figure}[h!]
- \hfill \includegraphics[width=150pt]{images/person-b-person}\hspace*{\fill}
+ \hfill \includegraphics[width=120pt]{images/person-b-person}\hspace*{\fill}
   \label{fig:person-b-person}
 \end{figure}
 \myparagraph{Person with belonging acting on belonging}
 A person delivers a service to another person changing the conditions of the customer belonging (e.g., car repair, transportation). Providers belongings (tools) are used to deliver the service. Customer belongings are managed by the provider.
 \begin{figure}[h!]
- \hfill \includegraphics[width=150pt]{images/person-belonging}\hspace*{\fill}
+ \hfill \includegraphics[width=120pt]{images/person-belonging}\hspace*{\fill}
   \label{fig:person-belonging}
 \end{figure}
-\myparagraph{Person acting on person}
+\myparagraph{Belonging acting on person}
 Customer interacts with providers belonging to exploit a service (e.g., self-service). Providers belongings (tools) are used to deliver the service. Human intervention at provider side is limited. Customer needs to interact with machines (H2M). \\ 
 Customer does not communicate with the service provider but he/she uses their belongings (e.g, Consumer uses the ATM without "seeing" the bank). 
 \begin{figure}[h!]
@@ -296,7 +301,7 @@ Belongings are directly interacting (e.g., web services). Providers belongings (
 \subsubsection{Resource intensity of services}
 Resource intensity is a measure of the resources required for the provision of a unit of a good or service.
 \begin{itemize}
-	\item \textbf{Labor- and capital-intensive services}: labor costs outweigh the costs for equipment and materials (e.g., hospital)
+	\item \textbf{Laborand capital-intensive services}: labor costs outweigh the costs for equipment and materials (e.g., hospital)
 	\item \textbf{Knowledge-intensive services}: heavily rely on professional knowledge (e.g., medical doctors)
 	\item \textbf{Information-intensive services}: activities are mainly focused on data management (e.g., data analytics)
 	\item \textbf{Technology-intensive services}: labor costs becomes negligible (e.g., web service, cloud services)
@@ -418,7 +423,7 @@ Figure 17 shows an example blueprint for a Corner Shoeshine. The line of visibil
 \begin{itemize}
 	\item \textbf{Customer actions and Physical evidence}: include all of the steps that customers take as part of the service delivery process. Customer actions are depicted chronologically across the top of the blueprint. For each customer action, and every moment of truth, the physical evidence that customers come in contact with is described at the very top of the blueprint. These are all the tangibles that customers are exposed to that can influence their quality perceptions.
 	\item \textbf{Frontstage}: both visible and invisible actions of frontline contact employees that occur as part of a face-to-face (social-media, e-mail, phone) or face-to-computer (website, chatbot) encounter. This stage is composed by touchpoints or channels that the company uses to interact with the users.
-	\item \textbf{Backstage}: everything that appears above the line of visibility is seen by the customer, while everything below it is invisible. Below the line of visibility, all of the other contact employee actions are described, both those that involve non- visible interaction with customers (e.g., telephone calls) as well as any other activities that contact employees do in order to prepare to serve customers or that are part of their role responsibilities.
+	\item \textbf{Backstage}: everything that appears above the line of visibility is seen by the customer, while everything below it is invisible. Below the line of visibility, all of the other contact employee actions are described, both those that involve nonvisible interaction with customers (e.g., telephone calls) as well as any other activities that contact employees do in order to prepare to serve customers or that are part of their role responsibilities.
 	\item \textbf{Support process}: these are all of the activities carried out by individuals and units within the company who are not contact employees but that need to happen in order for the service to be delivered.
 \end{itemize}
 \myparagraph{Blueprint lines:}
@@ -480,8 +485,8 @@ Finally, in the \textbf{Backstage} we identify which are the people (if any) inv
 \section{\LARGE Business Process Management}
 \subsection{Introduction}
 Business process management is based on the observation that each product that a company provides to the market is the outcome of a number of activities performed. Business processes are the key instrument to organizing these activities and to improving the understanding of their interrelationships. Business processes are an important concept to facilitating this effective collaboration. \\ \\
-In many companies there is a gap between organizational business aspects and the information technology that is in place. Narrowing this gap between organization and technology is important, because in today’s dynamic mar- kets, companies are constantly forced to provide better and more specific products to their customers. \\ \\
-While at an organizational level, business processes are essential to under- standing how companies operate, business processes also play an important role in the design and realization of flexible information systems.
+In many companies there is a gap between organizational business aspects and the information technology that is in place. Narrowing this gap between organization and technology is important, because in today’s dynamic markets, companies are constantly forced to provide better and more specific products to their customers. \\ \\
+While at an organizational level, business processes are essential to understanding how companies operate, business processes also play an important role in the design and realization of flexible information systems.
 \subsubsection{Definitions}
 \begin{enumerate}
 	\item \textit{"A Business process is a collection of inter-related events, activities and decision points that involve a number of actors and objects, and that collectively lead to an outcome that is of value to at least one customer."} (Dumas, La Rosa, Mendling, Rejiers)
@@ -523,7 +528,7 @@ Business processes can be classified according to their degree of repetition. Ex
 At the other end of the repetition continuum, there are business processes that occur a few times only. Examples include large engineering efforts, such as designing a vessel. 
 \myparagraph{Degree of structuring}
 If the business process model prescribes the activities and their execution constraints in a complete fashion, then the process is structured. The different options for decisions that will be made during the enactment of the process have been defined at design time.  \\ \\
-If process participants who have the experience and competence to decide on their working procedures perform business process activities, structured processes are more of an obstacle than an asset. Skipping certain process ac- tivities the knowledge worker does not require or executing steps concurrently that are ordered sequentially in the process model is not possible in structured business processes. \\ 
+If process participants who have the experience and competence to decide on their working procedures perform business process activities, structured processes are more of an obstacle than an asset. Skipping certain process activities the knowledge worker does not require or executing steps concurrently that are ordered sequentially in the process model is not possible in structured business processes. \\ 
 To better support knowledge workers, business process models can define processes in a less rigid manner, so that activities can be executed in any order or even multiple times until the knowledge worker decides that the goals of these activities have been reached. So called ad \textit{hoc activities} are an important concept for supporting unstructured parts of processes.
 \subsection{BPM}
 \textit{"BPM includes concepts, methods, and techniques to support the design, administration, configuration, enactment, and analysis of business processes."} (Weske)
@@ -550,24 +555,48 @@ Tomorrow:
 The business process lifecycle is shown in Figure 24; it consists of phases that are related to each other. The phases are organized in a cyclical structure, showing their logical dependencies. These dependencies do not imply a strict temporal ordering in which the phases need to be executed. Many design and development activities are conducted during each of these phases, and incremental and evolutionary approaches involving concurrent activities in multiple phases are not uncommon.
 \myparagraph{Design and Analysis}
 The business process lifecycle is entered in the Design and Analysis phase, in which surveys on the business processes and their organizational and technical environment are conducted. Based on these surveys, business processes are identified, reviewed, validated, and represented by business process models. \\ \\
-Business process \uline{modelling} techniques as well as \uline{validation}, \uline{simulation}, and \uline{verification} techniques are used during this phase. Business process mod- elling is the core technical subphase during process design. Based on the survey and the findings of the business process improvement activities, the informal business process description is formalized using a particular business process modelling notation. \\ \\
-Simulation techniques can be used to support validation, because certain undesired execution sequences might be simulated that show deficits in the process model. Simulation of business processes also allows stakeholders to walk through the process in a step-by-step manner and to check whether the process actually exposes the desired behaviour
+Business process \uline{modelling} techniques as well as \uline{validation}, \uline{simulation}, and \uline{verification} techniques are used during this phase. Business process modelling is the core technical subphase during process design. Based on the survey and the findings of the business process improvement activities, the informal business process description is formalized using a particular business process modelling notation. \\ \\
+Simulation techniques can be used to support validation, because certain undesired execution sequences might be simulated that show deficits in the process model. Simulation of business processes also allows stakeholders to walk through the process in a step-by-step manner and to check whether the process actually exposes the desired behaviour.
+\\ \\
+The Design phase can execute following two approaches:
+\begin{itemize}
+	\item \uline{Bottom-Up}: interview people in the organization and abstract a business process.
+	\item \uline{Top-Down}: understand the business process starting from the process reference architecture.
+\end{itemize}
+The Design phase can be further divided in:
+\begin{itemize}
+	\item \uline{Identification}: understanding the process orientation
+	\item \uline{Modeling}: formalize what have been identified using some languages (BPMN)
+\end{itemize}
+The analysis phase can be further divided in:
+\begin{itemize}
+	\item \uline{Validation}: syntactical and soundness check
+	\item \uline{Simulation}: use a simulator to try different parameters and understand if the process is efficient for my resources
+	\item \uline{Verification}: verify if everything is behaving correctly
+\end{itemize}
+In the end of the Design \& Analysis step we should not expect to have an error free process, but our aim is to eliminate a as much error as possible
 \myparagraph{Configuration}
 Once the business process model is designed and verified, the business process needs to be implemented. There are different ways to do so. It can be implemented by a set of policies and procedures that the employees of the enterprise need to comply with. In this case, a business process can be realized without any support by a dedicated business process management system. \\ \\ 
-In case a dedicated software system is used to realize the business process, an implementation platform is chosen during the configuration phase. The business process model is enhanced with technical information that facilitates the enactment of the process by the business process management system. \\ \\
+In case a dedicated software system is used to realize the business process, an implementation platform is chosen during the configuration phase. The business process model is enhanced with technical information that facilitates the enactment of the process by the business process management system. \pagebreak
 There are two main strategies to adopt a BPMS:
 \begin{itemize}
 	\item Make (very rarely): write legacy software
-	\item Buy (more often): integrate existing software systems
+	\item Buy (more often): integrate existing software systems and transform the BPM into an executable model that can be understood by a BPMS (e.g., Camunda)
 \end{itemize}
 \myparagraph{Enactement}
-Once the system configuration phase is completed, business process instances can be enacted. The process enactment phase encompasses the actual run time of the business process. Business process instances are initiated to fulfil the business goals of a company. Initiation of a process instance typically follows a defined event, for instance, the receipt of an order sent by a customer. \\ \\ 
+Once the system configuration phase is completed, \textbf{business process instances can be enacted}. The process enactment phase encompasses the actual run time of the business process. Business process instances are initiated to fulfil the business goals of a company. Initiation of a process instance typically follows a defined event, for instance, the receipt of an order sent by a customer. \\ \\ 
 The business process management system actively controls the execution of business process instances as defined in the business process model. Process enactment needs to cater to a correct process orchestration, guaranteeing that the process activities are performed according to the execution constraints specified in the process model.
 \\ \\
-A monitoring component of a business process management system visual- izes the status of business process instances. Process monitoring is an impor- tant mechanism for providing accurate information on the status of business process instances.
+A monitoring component of a business process management system visualizes the status of business process instances. Process monitoring is an important mechanism for providing accurate information on the status of business process instances.
 \myparagraph{Evaluation}
-The evaluation phase uses information available to evaluate and improve busi- ness process models and their implementations. Execution logs are evaluated using business activity monitoring and process mining techniques. These tech- niques aim at identifying the quality of business process models and the ade- quacy of the execution environment. \\ \\
+The evaluation phase uses information available to evaluate and improve business process models and their implementations. Execution logs are evaluated using business activity monitoring and process mining techniques. These techniques aim at identifying the quality of business process models and the adequacy of the execution environment. \\ \\
 For instance, business activity monitoring might identify that a certain activity takes too long due to shortage of resources required to conduct it. Since this information is useful also for business process simulation, these phases are strongly related.
+\\ \\
+The goal of this step is to \textbf{analyse the running and/or terminated business process} to check:
+\begin{itemize}
+	\item \uline{Compliance}: ability to ensure that policies and procedures are designed to comply with internal and external policies.
+	\item \uline{Conformance}: ability to stick the execution of the process to the designed process model. 
+\end{itemize}
 \pagebreak
 \section{BPModeling}
 \subsection{Conceptual Model and Terminology}
@@ -575,15 +604,15 @@ Business processes consist of activities whose coordinated execution realizes so
 \begin{itemize}
 	\item \textbf{Manual activities} are not supported by information systems. An example of a manual activity is sending a parcel to a business partner. 
 	\item \textbf{User interaction activities} go a step further: these are activities that knowledge workers perform, using information systems. There is no physical activity involved. An example of a human interaction activity is entering data on an insurance claim in a call centre environment.
-	\item \textbf{System activities} do not involve a human user; they are executed by in- formation systems. An example of a system activity is retrieving stock in- formation from a stock broker application or checking the balance of a bank account.
+	\item \textbf{System activities} do not involve a human user; they are executed by information systems. An example of a system activity is retrieving stock information from a stock broker application or checking the balance of a bank account.
 \end{itemize}
 Certain parts of a business process can be enacted by workflow technology. A workflow management system can make sure that the activities of a business process are performed in the order specified, and that the information systems are invoked to realize the business functionality. We argue that workflow is not a subclass of business process, since a workflow realizes a part of a business process, so a workflow is not in an “is-a” relationship with a business process, but is an association. \\ \\
-With regard to the types of activities mentioned, system activities are associated with workflows, since system activities can participate in any kind of workflow, system workflow or human interaction workflow. User interac- tion activities and manual activities, however, can only participate in human interaction workflows.
+With regard to the types of activities mentioned, system activities are associated with workflows, since system activities can participate in any kind of workflow, system workflow or human interaction workflow. User interaction activities and manual activities, however, can only participate in human interaction workflows.
 \subsection{Abstraction Concepts}
-To capture the complexity in business process management, different abstrac- tion concepts are introduced. A traditional abstraction concept in computer science is the separation of modelling levels, from instance level to model level to metamodel level, denoted by \textbf{horizontal abstraction}.  \\ \\
+To capture the complexity in business process management, different abstraction concepts are introduced. A traditional abstraction concept in computer science is the separation of modelling levels, from instance level to model level to metamodel level, denoted by \textbf{horizontal abstraction}.  \\ \\
 Aggregation can also be used to cope with complexity, motivating another type of abstraction. At a higher level of abstraction, multiple elements of a lower level of abstraction can be grouped and represented by a single artefact. This type of abstraction is called \textbf{aggregation abstraction}, because the coarse-grained business function aggregates activities of smaller granularity.
 \\ \\
-Aggregation abstraction is different from horizontal abstraction, because all activities (the small-grained and the coarse-grained) are at one horizontal level of abstraction, e.g., the instance level. Aggregation abstraction is primar- ily used in the functional subdomain, where functions of smaller granularity are combined to create functions of larger granularity.
+Aggregation abstraction is different from horizontal abstraction, because all activities (the small-grained and the coarse-grained) are at one horizontal level of abstraction, e.g., the instance level. Aggregation abstraction is primarily used in the functional subdomain, where functions of smaller granularity are combined to create functions of larger granularity.
 \pagebreak
 \subsubsection{Horizontal Abstraction}
 \begin{figure}[ht!]
@@ -591,16 +620,16 @@ Aggregation abstraction is different from horizontal abstraction, because all ac
  \caption{Levels of abstraction}
   \label{fig:ha}
 \end{figure}
-The \textbf{instance level} reflects the concrete entities that are involved in business processes. Executed activities, concrete data values, and resources and persons are represented at the instance level.\\ \\
-To organize the complexity of business process scenarios, a set of similar entities at the instance level are identified and classified at the \textbf{model level}. \\ \\
+The \textbf{instance level} reflects the concrete entities that are involved in business processes. Executed activities, concrete data values, and resources and persons are represented at the instance level (e.g., PetriNet).\\ \\
+To organize the complexity of business process scenarios, a set of similar entities at the instance level are identified and classified at the \textbf{model level} (e.g., BPM). \\ \\
 In object modelling, a set of similar entities is represented by a class, and in data modelling using the Entity Relationship approach, a set of similar entities is represented by an entity type, and similar relationships between entity types are represented by a relationship type. \\ \\
-Models are expressed in \textbf{metamodels} that are associated with notations, often of a graphical nature. In data modelling, the Entity Relationship metamodel defines entity types, relationship types, and connections between them. Typical graphical notations of the Entity Relationship metamodel are rectangles for entity types and diamonds for relationship types, connected by lines. \\ \\
+Models are expressed in \textbf{metamodels} (e.g., BML) that are associated with notations, often of a graphical nature. In data modelling, the Entity Relationship metamodel defines entity types, relationship types, and connections between them. Typical graphical notations of the Entity Relationship metamodel are rectangles for entity types and diamonds for relationship types, connected by lines. \\ \\
 The complete set of concepts and associations between concepts is called metamodel. A metamodel becomes useful if there is a notation for this metamodel that allows expressing models in a convenient way that allows communication between stakeholders in the modelled real-world situation.
 \pagebreak
 \subsubsection{Vertical Abstraction}
 \begin{figure}[ht!]
  \hfill \includegraphics[width=220pt]{images/vertical-abstraction}\hspace*{\fill}
- \caption{Business process modelling includes multiple modelling domains, inte- grated by process modelling}
+ \caption{Business process modelling includes multiple modelling domains, integrated by process modelling}
   \label{fig:va}
 \end{figure}
 in Figure 26, distinct modelling subdomains are identified. Function modelling, data modelling, organization modelling, and modelling of the operational information technology landscape are required to provide a complete picture of a business process.  \\ \\
@@ -610,7 +639,7 @@ The \textbf{functional model} investigates the units of work that are being enac
 \subsubsection{Business Process meta-model}
 In this section, a simple process metamodel is introduced. Any modelling effort starts with identifying the main concepts that need to be represented. In metamodelling, the concepts to be represented are models.
 \begin{itemize}
-	\item \textbf{Process Model}: A process model represents a blue print for a set of process instances with a similar structure. Process models have a two-level hi- erarchy, so that each process model consists of a set of activity models. Each process model consists of nodes and directed edges.
+	\item \textbf{Process Model}: A process model represents a blue print for a set of process instances with a similar structure. Process models have a two-level hierarchy, so that each process model consists of a set of activity models. Each process model consists of nodes and directed edges.
 	\item \textbf{Edge}: Directed edges are used to express the relationships between nodes in a process model.
 	\item \textbf{Node}: A node in a process model can represent an activity model, an event model, or a gateway model.
 	\begin{itemize}
@@ -650,6 +679,258 @@ In event diagrams, time proceeds from left to right, and events are shown as bul
 \end{figure}
 \subsection{BPMN Model}
 Business Process Model and Notation (used in this course): \textcolor{MidnightBlue}{https://www.omg.org/spec/BPMN/2.0/PDF}
+\pagebreak
+\section{\LARGE Service Oriented Architecture}
+\subsection{Main concepts}
+\textbf{Service Oriented Architecture (SOA)} is a paradigm for organizing and utilizing distributed capabilities that may be under the control of different ownership domains.
+\\ \\ \uline{Key concepts:}
+\begin{itemize}
+	\item SOA is a paradigm, not a technology!
+	\item SOA is intended to be distributed, thus the connection among systems is mandatory
+	\item SOA allows to model services provided even by different owners
+\end{itemize}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=220pt]{images/soa-broker}\hspace*{\fill}
+  \label{fig:soa-broker}
+\end{figure}
+Different actors are playing in the SOA context.
+There is a \textbf{Service Provider} who publishes services' interfaces and description of his software components to a \textbf{Service Broker}. Then a \textbf{Service Consumer}, who is looking for a specific function/service to achieve its goals can search for services on the broker. \\ \\ In this way, the consumer lifecycle is completely separated from the provider lifecycle.\\ \\
+\textbf{Service Oriented Architecture is a way of designing, developing, deplying, and managing systems}, in which:
+\begin{itemize}
+	\item Service Providers provide reusable business functionality via well-defined interfaces.
+	\item Service Consumers are built using functionality from available services, and possibly by a composition of them
+	\item There is a clear separation between the service interface and service implementation (consumers can see only the interface, while the implementation is visible only to providers)
+	\item A SOA infrastructures enables discovery, composition, and invocation of services
+\end{itemize}
+The main benefit that comes with SOA, specially for enterprises, consist in the fact that, while traditional approaches result in developing different applications with similar functionalities, \textbf{with SOA functionalities and capabilities of the system can be encapsulated and reused for different purposes and contexts}. Moreover, services can (and MUST!) be considered as autonomous entity, that possibly can be composed together to provide a new service. \\ \\
+When switching from a traditional to a SOA design approach, enterprises can follow two methods:
+\begin{itemize}
+	\item \uline{Top-down}: services can be pulled from the IT infrastructure as a way to re-organize the existing applications
+	\item \uline{Bottom-up}: services can be created from scratch as new business requirements arise
+\end{itemize}
+Services could be designed and developed for \textbf{internal end users}, this means that they can be used by other components of the same enterprices for which the audience is well-known. \\
+They could also be designed and implemented for \textbf{external users}. In this case, we are talking about \textit{services as a product}, where services are usually exposed as API.
+\subsection{Service-orientation Design principles}
+The service-orientation design principles may be broadly categorized as follows, following Thomas Erl's, SOA Principles of Service Design:
+\begin{itemize}
+	\item \textbf{Standardized Service Contract}: contract includes both functional and non-functional aspects of the service
+	\begin{itemize}
+		\item Functional aspects (e.g, input/output, protocols, uri) are usually described via API (WSDL for SOAP and OpenAPI for REST)
+		\item Non-functional aspects are not so standardized so far (WS-agreement is one of the most adopted standard)
+	\end{itemize}
+	From a technical perspective, contracts are exposed as service descriptions with machine readable and understandable languages.
+	\item \textbf{Service Loose Coupling:} lifecycle of a service should be as much as possible indepedent from its consumer. Implemementation and adopted technology, i.e., how a service fulfills the contract, must be independent.
+	\item \textbf{Service Abstraction:} the service contract should contain only the minimal set of information to allow the consumer to invoke the services. All the information about how the service is implemented must be hidden.
+	\item \textbf{Service Reusability}: a service should not be designed only to solve a specific need
+	\begin{itemize}
+		\item The design of the service should be more generic in order to allow the reuse in other contexts. Having a reusable service may result in a tangible value for the business of the enterprise (API economy)
+	\end{itemize}
+	\item \textbf{Service Autonomy:} service should support the self-* properties
+	\begin{itemize}
+		\item self-healing
+		\item self-configuring
+		\item self-optimizing
+		\item self-protecting
+	\end{itemize}
+	\item \textbf{Service Statelessness:} to increase the autonomy and the loose coupling a service should not retain any state. State must be stored by the consumer and not by the provider to increase scalability and flexibility of the resulting system.
+	\begin{itemize}
+		\item \uline{Stateless service}: only client maintains the state
+		\item \uline{Stateful service}: server maintains information (the state) about each interaction for all the clients
+	\end{itemize}
+	\textbf{Service Discoverability:} in addition to the contract, services should be accompained with metadata to increase their discoverability and further describe their purposes and capabilities to humans.
+	\textbf{Service Composability:} a service can be designed as a composition of other services. The composition could be driven by a business process.
+\end{itemize}
+\subsection{Service-orientation benefits}
+\begin{itemize}
+	\item \textbf{Standardization}: increase consistency in how functionalities and data is represented
+	\item \textbf{Loose Coupling}:
+	\begin{itemize}
+		\item Reduced dependencies between units of solution logic
+		\item Reduce awareness of underlying solution logic design and implementation details	
+	\end{itemize} 
+	\item \textbf{Reusability}: 
+	\begin{itemize}
+		\item increased opportunities to use a piece of solution logic for multiple purpose
+		\item increased opportunities to combine units of solution logic into different configurations
+	\end{itemize}
+	\item \textbf{Availability and Scalability}
+\end{itemize}
+\pagebreak
+\section{\LARGE SOAP and REST}
+\subsection{SOAP}
+\textbf{SOAP is a protocol}, based on RPC, that defines the structure of message to be exchanged over the web. It enables for interoperability among a wide range of programs, on a wide range of platforms.\\
+The main idea behind designing SOAP was to ensure that programs built on different platforms and programming languages could exchange data in an easy manner.
+Indeed it makes use of existing technologies wherever possible:
+\begin{itemize}
+	\item HTTP and SMTP as transport protocols
+	\item XML as interaction encoding scheme
+\end{itemize}
+SOAP services are described using Web Services Description Language (WSDL). WSDL is used to describe WHAT a service provides (the methods) and is independent of any programming language.
+\subsection{REST}
+\textbf{REST is an architectural style} (NOT A PROTOCOL!). It provides a more scalable approach to implement web services w.r.t. RPC-SOAP. While RPC-SOAP are method oriented, \textbf{REST is resource oriented}. It takes inspiration from the Web (HTTP) which is flexible and scalable by definition.
+\\ \\ \uline{REST tries to overcome some SOAP limits}:
+\begin{itemize}
+	\item SOAP is based on RPC (another architectural style)
+	\item SOAP as an high overhead for transformation and conversion of messages, which applies both on sending and receiveing
+	\item SOAP uses only XML as encoding scheme, which is computation intensive when parsing
+	\item SOAP is stateful, and this has an impact on scalability
+\end{itemize}
+\subsubsection{REST constraints}:
+\begin{itemize}
+	\item \textbf{Client-Server}: the basic architectural style enabling decoupling between components
+	\item \textbf{Uniform Interface}: common contract between client and server
+	\item \textbf{Stateless}: the request contains all the data needed for the processing at server side (client must maintain the state)
+	\item \textbf{Cacheable}: response could be stored and used for equal upcoming requests to improve the efficiency
+	\item \textbf{Layered System}: client is agnostic of the complexity at server side
+	\item Code on Demand (optional): server can transmit code to the client to be executed at client-side
+\end{itemize}
+\subsubsection{REST on HTTP}
+Main Concepts:
+\begin{itemize}
+	\item \textbf{Resource}: abstraction of an entity
+	\item \textbf{Representation}: concrete entity encoded via specific grammars (e.g. JSON, XML)
+	\item \textbf{Methods}: how to work with resources (GET, PUT, POST, DELETE, PATCH, HEAD). These are the only methods permitted and are known a priori, while in SOAP we had WSDL specifying the methods exposed by a service.
+	\item \textbf{URI}: how to uniquely identify a resource
+\end{itemize}
+To obtain a uniform interface and better describe our API and related resources, we can follow this approach:
+\begin{itemize}
+	\item Distinguish between resource (real data) and representation
+	\item Few and well-defined operations allowed on the resources, possibly only the CRUD (Create, Read, Update, Delete) operations
+	\item Messages in addition to the resource info also includes all the information to proper manage the resource (HATEOAS) to reduce the a-priori knowledge
+\end{itemize}
+\subsubsection{Resources}
+A resource represents a data structure
+\begin{itemize}
+	\item Identified by a URI (unique name of a resource)
+	\item Accessible through methods
+\end{itemize}
+We can distinguish different archetypes of resources:
+\begin{itemize}
+	\item \textbf{Document (singular)}: 
+	\begin{itemize}
+		\item represents an object instance or a database record
+		\item its URI has a singular noun
+		\item Examples (single documents inside a collection):  \\
+		\textit{http://api.soccer.restapi.org/leagues/seattle \\
+http://api.soccer.restapi.org/leagues/seattle/teams/trebuchet \\
+http://api.soccer.restapi.org/leagues/seattle/teams/trebuchet/players/mike}
+	\end{itemize}	 
+	\item \textbf{Collection}: server-managed directory of resources
+		\begin{itemize}
+			\item Client may propose to add new resources to a collection
+			\item Server mediates and decide if it can be stored (e.g., status and validity checks)
+			\item Examples:  \\
+		\textit{http://api.soccer.restapi.org/leagues \\
+http://api.soccer.restapi.org/leagues/seattle/teams \\
+http://api.soccer.restapi.org/leagues/seattle/teams/trebuchet/players}
+		\end{itemize}
+	\item \textbf{Store}: client-managed resource repository
+	\begin{itemize}
+		\item Client completely manages the resource
+		\item No middleware mediates between the client and the storage (client can add whatever)
+		\item Examples:  \\ \textit{http://api.music.restapi.org/artists/mikemassedotcom/playlists}
+	\end{itemize}
+\end{itemize}
+\begin{figure}[h!]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{images/rest1.png}
+  \captionof{figure}{XML representation of a resource}
+  \label{fig:rest1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{images/rest2.png}
+  \captionof{figure}{JSON representation of a resource}
+  \label{fig:rest2}
+\end{minipage}
+\end{figure} 
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=180pt]{images/rest-collections}\hspace*{\fill}
+ \caption{Example of URL structure}
+  \label{fig:url-structure}
+\end{figure}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=190pt]{images/rest-op}\hspace*{\fill}
+ \caption{REST request methods explained}
+  \label{fig:rest-op}
+\end{figure}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=180pt]{images/rest-status}\hspace*{\fill}
+ \caption{REST response status code categories}
+  \label{fig:rest-status}
+\end{figure}
+\subsubsection{HATEOAS}
+\begin{figure}[ht!]
+ \hfill \includegraphics[width=180pt]{images/hateoas}\hspace*{\fill}
+ \caption{HATEOAS examples: different links can be returned according to the operations permitted to the specific user}
+  \label{fig:rest-status}
+\end{figure} 
+HATEOAS (Hypermedia as the Engine of Application State) is a constraint of the REST application architecture that keeps the RESTful style architecture unique from most other network application architectures. The term “hypermedia” refers to any content that contains links to other forms of media such as images, movies, and text.
+\\ \\
+REST architectural style lets us use the hypermedia links in the response contents. It allows the client can dynamically navigate to the appropriate resources by traversing the hypermedia links. \\
+Furthermore, API responses can be customised to return different links based on the user who is calling that method.
+\subsection{REST vs SOAP}
+\begin{center}
+\begin{tabular}{ | m{200pt} | m{200pt}| }
+\hline
+\textbf{SOAP} & \textbf{REST} \\
+\hline
+ SOAP is a protocol. SOAP was designed with a specification. It includes a WSDL file which has the required information on what the web service does in addition to the location of the web service. & REST is an Architectural style in which a web service can only be treated as a RESTful service if it follows the constraints of being, Client Server, Stateless, Cacheable, Layered System, Uniform Interface	\\ 
+ \hline
+ SOAP uses service interfaces to expose its functionality to client applications. In SOAP, the WSDL file provides the client with the necessary information which can be used to understand what services the web service can offer. & REST exposes a uniform interface in the form of URIs, which uniquely identify entities (resources). Then the only methods available are based on HTTP.\\
+ \hline
+ SOAP requires more bandwidth for its usage. Since SOAP Messages contain a lot of information inside of it, the amount of data transfer using SOAP is generally a lot (it includes not only the body of the request). & REST does not need much bandwidth when requests are sent to the server. REST messages mostly just consist of JSON (or XML) messages.   \\
+ \hline 
+ SOAP can only work with XML format. As seen from SOAP messages, all data passed is in XML format. & REST permits different data format such as Plain text, HTML, XML, JSON, etc. But the most preferred format for transferring data is JSON. \\
+ \hline
+\end{tabular}
+\end{center}
+\section{Service Portfolio}
+Service Portfolio design concerns the need to design in a cohernt way the set of services of an organization. \\ \\
+After having identified and modeled our business process, we should follow a number of steps to design our portfolio. \\ Thomas Erl defined 4 types of services inside our process (we only analyze consider 3 of them):
+\begin{itemize}
+	\item \textbf{Task service}: 
+	\begin{itemize}
+		\item non-agnostic and focused on a specific purpose inspired by a business process
+		\item perform stateful activities which are well-defined in a specific context and invoked in a specific step in our business process
+	\end{itemize}
+	\item \textbf{Entity service}:
+	\begin{itemize}
+		\item agnostic with respect to the functional context
+		\item models the connection between our business process and the informational resources (databases)
+	\end{itemize}
+	\item \textbf{Utility Service}:
+	\begin{itemize}
+		\item agnostic and focused on a specific purpose
+		\item similar to task services, but related to common activities (e.g., logging, notification, message exchange)
+	\end{itemize}
+\end{itemize}
+Erl proposed also a process to design our service portfolio (in classes we analyzed a simplified version of the original one):
+\begin{enumerate}
+	\item \textbf{Revise business process}: 
+	\begin{itemize}
+		\item Ensure that the model has no different level of aggregation: functional sub-processing is ok, while hierarchical sub-processing should be solved (expanded)
+		\item Clarify who/what system is in charge of executing the activities (specify icons for all the activities in the business process)
+	\end{itemize}
+	\item \textbf{Filter-out unsuitable actions}: remove the activities marked as "manual task" because we are not able to manage them within the service context
+	\item \textbf{Define Entity Service Candidates}: highlight entity services i.e., the one referring to business object, which usually are REST services whose activities are marked as "service task" or "user task"
+	\item \textbf{Define Utility Service Candidates}: highlight utility services that usually refers to common functions (e.g., message events) 
+	\item \textbf{Define Task Service Candidates}: highlight task services, the one implementing a specific activity which is fundamental in the context of our business process and that could be a composition of a process at a lower level \pagebreak
+	\item \textbf{Identify Process-Specific Logic}: 
+	\begin{itemize}
+		\item specify the interface that customers can use to interact with our business process
+		\item specify who/what is in charge to evaluate branch conditions and how
+	\end{itemize}
+	\item \textbf{Design Entity Services}: define collections managed by entities along with the permitted operations. Usually each collection is managed by a different service (3 collections $=$ 3 services
+	\item \textbf{Design Utility Services}: usually embedded in BPMS. We can use and additional entity service for notifications/messages, thus another collection and another REST service.
+	\item \textbf{Design Task Services}: 
+	\begin{itemize}
+		\item  \uline{with BPMS}: having a BPMS means to rely on the API exposed by it, thus the process model should include service calls to the identified services based on the agreed interface
+		\item  \uline{without BPMS}: develop a service and expose it through a well defined interface. The service will then be called by the client. 
+\end{itemize}	
+\end{enumerate}
 \section{\LARGE References}
 \begin{enumerate}[label={[\arabic*]}]
   \item C. M. MacKenzie et al.,Reference Model for Service Oriented
