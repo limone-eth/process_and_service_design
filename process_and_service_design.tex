@@ -137,7 +137,7 @@ From a dynamic perspective, there are three fundamental concepts that are import
  For a service provider and consumer to interact with each other they have to be able to "see" each other. This is true for any consumer/provider relationship. In the case of SOA, visibility needs to be emphasized because it is not necessarily obvious how service participants can see each other. \\
  Preconditions to visibility are awareness, willingness and reachability. The initiator MUST be aware of the other parties, the participants MUST be predisposed to interaction, and the participants must be able to interact.
  \begin{itemize}
- 	\item \textbf{Awareness}: both the service provider and the service consumer MSUT have information that would lead them to know of the other's existence. For a service consumer to discover a a service, the service provider must be capable of making details (service description and policies) of the service available to potential consumers.
+ 	\item \textbf{Awareness}: both the service provider and the service consumer MUST have information that would lead them to know of the other's existence. For a service consumer to discover a a service, the service provider must be capable of making details (service description and policies) of the service available to potential consumers.
  	\item \textbf{Willingness}: it is an intentional act to initiate and to participate in a service interaction.  For example, the willingness for a service provider to interact with other consumers can be expressed in the action of publishing itself on a service registry/repository, where consumers can easily find them.
  	\item \textbf{Reachability}: the relationship between service participants where they are able to interact, possibly by exchanging information. Participants MUST be able to communicate with each other. A service consumer may have the intention of interacting with a service, however, if the service is not reachable, the service would not be visible by the consumer.
  \end{itemize}
@@ -180,7 +180,7 @@ In support of the dynamics of interacting with services are a set of concepts th
 \myparagraph{Service description}
 The service description represents the information needed in order to use a service. In most cases, there is no one “right” description but rather the elements of description required depend on the context and the needs of the parties using the associated entity. While there are certain elements that are likely to be part of any service description, most notably the information model, many elements such as function and policy may vary.
 \begin{figure}[h!]
- \hfill \includegraphics[width=180pt]{images/service-description}\hspace*{\fill}
+ \hfill \includegraphics[width=170pt]{images/service-description}\hspace*{\fill}
   \caption{Service description}
   \label{fig:description}
 \end{figure}
@@ -201,7 +201,7 @@ A service description SHOULD unambiguously express the function(s) of the servic
 A service description MAY include support for associating policies with a service and providing necessary information for prospective consumers to evaluate if a service will act in a manner consistent with the consumer’s constraints.
 \subparagraph{Service Interface}
 The service interface is the means for interacting with a service. It includes the specific protocols, commands, and information exchange by which actions are initiated that result in the real world effects as specified through the service functionality portion of the service description. The specifics of the interface SHOULD be syntactically represented in a standard referenceable format. These prescribe what information needs to be provided to the service in order to access its capabilities and interpret responses. This is often referred to as the service’s information model. it is assumed that for a service to be usable, its interface MUST be represented in a format that allows interpretation of the interface information by its consumers.
-\pagebreak
+
 \myparagraph{Policies and Contracts}
 A \uline{policy} represents some constraint or condition on the use, deployment or description of an owned entity as defined by any participant. A \uline{contract}, on the other hand, represents an agreement by two or more parties. Like policies, agreements are also about the conditions of use of a service.
 \begin{figure}[h!]
